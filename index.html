@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<head>
+    <title>Ikhaya Lethu - Our Home - Development</title>
+    <style>
+        body {
+            background: linear-gradient(#C18563, #FFFF00, #000000);
+        }
+        .dropdown {
+            overflow: hidden;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            text-align: left;
+        }
+        .dropdown .dropbtn {
+            font-size: 20px;
+            border: none;
+            outline: none;
+            color: #818181;
+            padding: 2px 2px;
+            background-color: inherit;
+            font-family: inherit;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 30px;
+        }
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: orange;
+        }
+        .dropdown-content {
+            display: none;
+            margin-left: 80px;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 1px 1px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+        }
+        .dropdown-content a:hover {
+            background-color: #000000;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+        }
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        .td1 {
+            color: green;
+        }
+        .td2 {
+            text-align: right;
+            padding: 1px;
+        }
+        .left {
+            float: left;
+            width: 99%;
+            height: wrap-content;
+            padding: 1px;
+            background-color: rgb(255, 255, 0);
+        }
+        .lefta {
+            float: left;
+            width: 100%;
+            height: wrap-content;
+            padding: 1px;
+            border-top: 1px solid #FFFF00;
+            border-right: 1px solid #FFFF00;
+            background-color: #FFFFFF;
+        }
+        .iconel {
+            background-color: white;
+            width: 100%;
+            margin: 0px;
+            border: 1px solid white;
+        }
+        .iconimg {
+            width: 110px;
+            height: 85px;
+            margin-top: 1px;
+        }
+        h1 {
+            text-align: left;
+            font-size: 25px;
+            color: #000000;
+            font-weight: normal;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            padding-bottom: 1px;
+        }
+        .p {
+            font-size: 22px;
+            color: rgb(40, 40, 40);
+            font-weight: normal;
+            margin-top: 1px;
+            padding-top: 1px;
+        }
+        h2 {
+            float: center;
+            border-left: 3px solid #FFFFFF;
+            border-right: 3px solid #FFFFFF;
+            border-bottom: 3px solid #FFFFFF;
+            width: 60%;
+            height: 100px;
+            text-align: center;
+            background-color: #000000;
+            margin-left: 20%;
+        }
+        #sincetxt {
+            font-size: 19px;
+            color: #FFFFFF;
+            margin-top: 9px;
+        }
+        .year {
+            color: rgb(0, 150, 0);
+        }
+        .h3 {
+            float: center;
+            text-align: center;
+            font-size: 20px;
+            color: rgb(0, 50, 0);
+        }
+        .slogan {
+            text-align: center;
+            float: center;
+            width: 80%;
+            margin-left: 10%;
+            background-color: #FFFFFF;
+        }
+        .color {
+            color: #FF0000;
+        }
+        .h4 {
+            float-edge: center;
+            text-align: center;
+            width: 100%;
+        }
+        h4 {
+            text-align: left;
+            width: 80%;
+            float: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            margin-left: 10%;
+        }
+        p {
+            font-size: 15px;
+            color: #000000;
+            font-weight: normal;
+        }
+        .sidebar {
+            float: right;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            text-align: left;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+        .sidebar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+        .openbtn:hover {
+            background-color: #444;
+        }
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+            .sidebar a {
+                font-size: 16px;
+            }
+        }
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+        }
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        .td1 {
+            text-align: left;
+            width: 80%;
+        }
+        .td2 {
+            text-align: center;
+            width: 20%;
+        }
+        embed {
+        	height: 50px;
+        }
+    </style>
+    <script>
+    	if (screen.width > 800) {
+    		window.location = "ikhayalethu.html"
+    	}
+    	function Home() {
+    		window.location = "index.html"
+    	}
+    </script>
+</head>
+
+<body>
+    <div class="left">
+        <div class="iconel">
+            <table>
+                <tr>
+                    <td class="td1">
+                        <img class="iconimg" src="lethu.png" onclick="Home()"/>
+                    </td>
+                    <td class="td2">
+                        <div id="mySidebar" class="sidebar">
+                            <p><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+                            </p>
+                            <a href="index.html" class="active">Home</a>
+                            <a href="coming%20soon.html">Content</a>
+                            <a href="coming%20soon.html">Services</a>
+                            <div class="dropdown">
+                                <button class="dropbtn">Activities
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="coming%20soon.html">Acting</a>
+                                    <a href="coming%20soon.html">Book Club</a>
+                                    <a href="coming%20soon.html">Dance</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="dropbtn">About
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="founder.html">Founders</a>
+                                    <a href="dev.html">Developers</a>
+                                </div>
+                            </div>
+                            <a href="#">Contacts</a>
+                        </div>
+
+                        <div id="main">
+                            <a href="#" class="openbtn" onclick="openNav()">
+                                <svg width="23" height="24">
+                                    <path d="M0,5 30,5" stroke="#fff" stroke-width="2" />
+                                    <path d="M0,14 30,14" stroke="#fff" stroke-width="2" />
+                                    <path d="M0,23 30,23" stroke="#fff" stroke-width="2" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <script>
+                            function openNav()
+                            {
+                                document.getElementById("mySidebar")
+                                    .style.width = "250px";
+                                document.getElementById("main")
+                                    .style.marginLeft = "20px";
+                            }
+
+                            function closeNav()
+                            {
+                                document.getElementById("mySidebar")
+                                    .style.width = "0";
+                                document.getElementById("main")
+                                    .style.marginLeft = "0";
+                            }
+                        </script>
+                    </td>
+                </tr>
+            </table>
+            <h1>IKHAYA LETHU</h1>
+            <p class="p">Our Home Development</p>
+        </div>
+
+        <div class="slogan">
+            <h><span class="h3">We say yes to the brighter future</span>
+            </h>
+        </div>
+        <br/>
+        <h2>
+        <p id="sincetxt">Serving the youth</p>
+		<p id="sincetxt">Since - <span class="year">2017</span></p>
+		</h2>
+    </div>
+    <div class="lefta">
+        <div class="h4">
+            <h4>Description
+        	<p>
+        	Ikhaya Lethu - Our Home - Development is a Non-profit Organisation (NPO) that is dedicated on serving the youth with support and help regarding Career Awareness and Online Applications to Universities and Busaries. We also provide a plartform for practicing and expressing Artistic Activities such as Drama and Poetry. Featured activities include the Book Club and Dance.
+			</p>
+			<h>VISION</h>
+        	<p>Our vision is to increase qualified leaners to tertiary institution, number of artists in rural areas, to fight the high level of drop in schools, to reduce drug and alcohol abuse and to improve the level of knowledge in terms career awareness and online application in high schools.
+        	</p>
+        	<h>MISSION</h>
+        	<p>
+            Our intentions are to bring development, entertainment, better standard of living, better education and better future for the youth of our country.
+        	</p>
+        	</h4>
+        </div>
+    </div>
+
+</body>
+
+</html>
