@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<head>
+    <title>The founder</title>
+    <style>
+        body {
+            width: 100%;
+            height: wrap content;
+            background: linear-gradient(white, teal, black);
+            animation: mymove 5s infinite;
+        }
+        @keyframes mymove {
+            from {
+                background: linear-gradient(white, teal, black);
+            }
+            to {
+                background: linear-gradient(black, teal, white);
+            }
+        }
+        .divq {
+            display: flex;
+            float: center;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 85%;
+            height: 450px;
+            text-align: center;
+            background-image: url(shirt.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-color: #FFFFFF;
+        }
+        .div {
+            display: flex;
+            float: center;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(90deg, red 50%, gold 50%);
+        }
+        h1 {
+            text-align: center;
+            background-color: rgba(160, 180, 255, 0.9);
+            width: 100%;
+            height: 452px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        .one {
+            font-size: 30px;
+            color: rgb(90, 90, 90);
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .two {
+            font-size: 30px;
+            color: rgb(5, 5, 5);
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .dev {
+            font-size: 20px;
+            color: gold;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .d {
+            color: #FF0000;
+        }
+        .r {
+            color: green;
+        }
+        .nrml {
+            font-size: 17px;
+            color: #000000;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        p {
+        	margin-top: 0;
+            margin-bottom: 0;
+        }
+        .sidebar {
+            float: right;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            text-align: left;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+            width: 100%;
+            text-align: left;
+        }
+        .sidebar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+        .openbtn:hover {
+            background-color: #444;
+        }
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+            .sidebar a {
+                font-size: 16px;
+            }
+        }
+        table,
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        table {
+            width: 100%;
+        }
+        th,
+        td {
+            border-collapse: collapse;
+        }
+        .td1 {
+            text-align: left;
+            width: 80%;
+        }
+        .td2 {
+            text-align: center;
+            width: 20%;
+        }
+        .dropdown {
+            overflow: hidden;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            text-align: left;
+        }
+        .dropdown .dropbtn {
+            font-size: 20px;
+            border: none;
+            outline: none;
+            color: #818181;
+            padding: 2px 2px;
+            background-color: inherit;
+            font-family: inherit;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 30px;
+        }
+        .dropdown .dropbtn1 {
+            font-size: 20px;
+            border: none;
+            outline: none;
+            color: #818181;
+            padding: 2px 2px;
+            background-color: #4CAF50;
+            font-family: inherit;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            margin-left: 30px;
+        }
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: orange;
+        }
+        .dropdown-content {
+            display: none;
+            margin-left: 80px;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 1px 1px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            margin-left: 5px;
+        }
+        .dropdown-content a:hover {
+            background-color: #000000;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .iconimg {
+            width: 110px;
+            height: 85px;
+            margin-top: 1px;
+        }
+    </style>
+
+    <script>
+    	function Home() {
+    		window.location = "index.html"
+    	}
+    </script>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td class="td1">
+                <img class="iconimg" onclick="Home()" src="lethu.png" />
+            </td>
+            <td class="td2">
+                <div id="mySidebar" class="sidebar">
+                    <p><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+                    </p>
+                    <a href="index.html">Home</a>
+                    <a href="coming%20soon.html">Content</a>
+                    <a href="coming%20soon.html">Services</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Activities
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="coming%20soon.html">Acting</a>
+                            <a href="coming%20soon.html">Book Club</a>
+                            <a href="coming%20soon.html">Dance</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn1">About
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="founder.html" class="active">Founders</a>
+                            <a href="developer.html">Developers</a>
+                        </div>
+                    </div>
+                    <a href="coming%20soon.html">Contacts</a>
+                </div>
+
+                <div id="main">
+                    <a href="#" class="openbtn" onclick="openNav()">
+                        <svg width="23" height="24">
+                            <path d="M0,5 30,5" stroke="#fff" stroke-width="2" />
+                            <path d="M0,14 30,14" stroke="#fff" stroke-width="2" />
+                            <path d="M0,23 30,23" stroke="#fff" stroke-width="2" />
+                        </svg>
+                    </a>
+                </div>
+
+                <script>
+                    function openNav()
+                    {
+                        document.getElementById("mySidebar")
+                            .style.width = "240px";
+                        document.getElementById("main")
+                            .style.marginLeft = "20px";
+                    }
+
+                    function closeNav()
+                    {
+                        document.getElementById("mySidebar")
+                            .style.width = "0";
+                        document.getElementById("main")
+                            .style.marginLeft = "0";
+                    }
+                </script>
+            </td>
+        </tr>
+    </table>
+    <div class="div">
+        <div class="divq">
+            <h1>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <p class="one">Ikhaya Lethu</p>
+            <p class="two">Our Home</p>
+            <p class="one">Development</p>
+            <hr color="red"/>
+            <p><span class="dev"><span class="d">F</span>ounde<span class="r">r</span>:</span> <span class="nrml">Sinovuyo Omhle Mhlambiso</span></p>
+            <p class="nrml"><a href="sinovuyomhlambiso@gmail.com">sinovuyomhlambiso@gmail.com</a></p>
+            <hr color="gold"/>
+</h1>
+        </div>
+    </div>
+</body>
+
+</html>
